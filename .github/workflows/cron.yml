@@ -1,8 +1,8 @@
 name: Borsa Tavan Takip Cron
 
 on:
-  schedule:
-    - cron: '*/5 * * * *'
+  repository_dispatch:
+    types: [trigger-borsa-cron]
   workflow_dispatch:
 
 jobs:
