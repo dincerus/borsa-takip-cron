@@ -32,9 +32,9 @@ async function runCronOnce(iteration = 1) {
     console.log('=== Borsa Tavan Takip Cron Motoru Başlatıldı ===');
     
     // Her 5 dakikalık GitHub tetiklemesinde 5 kez (dakika başı) çalışarak 1 dakikalık hassasiyet sağlar
-    for (let i = 1; i <= 5; i++) {
+    for (let i = 1; i <= 15; i++) {
         await runCronOnce(i);
-        if (i < 5) {
+        if (i < 15) {
             console.log('[i] Sonraki kontrol için 60 saniye bekleniyor...');
             await new Promise(resolve => setTimeout(resolve, 60000));
         }
