@@ -1,0 +1,26 @@
+name: Borsa Tavan Takip Cron
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
+
+jobs:
+  run-cron:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Repoyu Çek
+        uses: actions/checkout@v4
+
+      - name: Node.js Kurulumu
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Puppeteer Kur
+        run: npm install puppeteer
+
+      - name: Cron Tetikle (InfinityFree Korumasını Otomatik Aşar)
+        env:
+          CRON_URL: ${{ secrets.CRON_URL }}
+        run: node scripts/trigger_cron.js
